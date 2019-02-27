@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GTAA-Transit Bus ETA System</title>
+<link href="assests/css/login.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet"
+	href="assests/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet"	href="assests/css/bootstrap/font-awesome.min.css">
+<script	src="assests/js/angular.min.js"></script>
+<script	src="assests/js/angular-route.js"></script>
+<script	src="assests/js/jquery.min.js"></script>
+<script	src="assests/js/bootstrap/bootstrap.min.js"></script>
+	<script src="assests/js/bootbox/bootbox.js"></script>
+</head>
+<style>
+.logimg
+{
+position:relative;
+ padding-top:2%; 
+ 	/*background: rgba(2, 2, 2, 0.5);
+  background-image: url(assests/images/LoginPageDesign_BG_Login.png);	 */
+	background-repeat: no-repeat;	
+   /*  background-size: 100%; */
+    height: auto; 
+}
+.logimg>#divs, .logimg>#divs1, .logimg>#divs0
+{
+	position:relative;
+	/* background: rgba(2, 2, 2, 0.5); */
+	width: 62%;
+}
+#divs0
+{
+	/* background: rgba(2, 2, 2, 0.5); */
+	text-align: left;
+    top: 180px;
+    left: 100px;
+    font-weight: bold;  
+    font-size: 17px;  
+	letter-spacing: 1px;
+}
+#divs
+{   
+	bottom: 262px;
+    left: 116px;
+    
+}
+#divs1
+{
+	
+    bottom: 220px;
+    left: 118px;
+}
+.single-line
+{
+width:100%;
+border: none;
+background:none;
+outline-color: transparent;
+}
+/*  .logindiv
+{
+	display: fixed;
+    margin-top: auto;
+    margin-bottom: auto;
+ 
+}   */
+/* input
+{ position: fixed;
+} */
+ 
+</style>
+<body class="container-fluid login_background">
+ 
+	<div class="row">
+		<div class="col-md-7">
+		</div>
+		<div class="col-md-4 logimg">
+			 
+				  <div id="divs0">GTAA - IFC Bus ETA System</div>  
+				  <!-- <span id="divs0" ></span>  -->
+					<img src="assests/images/LoginPageDesign_BG_Login.png">
+								
+					<div id="divs">
+						<input	class=" text-box single-line" data-val="true" data-val-required="*"
+								id="user_name" name="user_name" type="text" placeholder="User Name" required onkeyup="validateAddress()"/>
+					</div>
+					<div id="divs1">			
+						<input class=" text-box single-line" data-val="true"
+								data-val-required="*" id="password" name="password" type="password"
+								placeholder="* * * * *" /> 
+					
+						<input type="submit" value="" class="btn btn-default login_background_input_submitb" required title="Login" />
+					</div>
+				
+				 
+		</div>
+		
+		<div class="col-md-1">
+		</div>
+		
+	</div>
+ 
+</body>
+</html>
+<script>
+
+	$.get('url.txt', function(data) {
+	var url = data;
+
+	$('.login_background_input_submitb').on('click', function() {
+
+		var username = $('#user_name').val();
+		var password = $('#password').val();
+
+		$.ajax({
+			
+			url : url + 'gtaa_ift/check_credentials',
+			method : 'POST',
+			dataType : 'JSON',
+			async : true,
+			headers : {
+				'Accept' : 'application/json',
+				'Content-Type' : 'application/json'
+			},
+			data : JSON.stringify({
+				"user_name" : username,
+				"password" : password,
+			}),
+			success : function(response) {
+				console.info(response);
+				if(response.Message == 'SUCCESS'){
+					localStorage.setItem('login_user',username);
+					localStorage.setItem('gta_Role',response.Role);
+					window.location.href='index.html?loggedIn='+username;
+				}else if(response.Message == 'FAILED'){
+					bootbox.alert(response.Description);
+				}else if(response.Message == 'AlreayLogedin'){
+				
+					//bootbox.alert(response.Description);
+					//$('#user_name').val('');
+					//$('#password').val('');
+					bootbox.confirm({
+					    message: "Another User Active. Should Need to Close Previous Session?",
+					    buttons: {
+					        confirm: {
+					            label: 'Yes',
+					            className: 'btn-success'
+					        },
+					        cancel: {
+					            label: 'No',
+					            className: 'btn-danger'
+					        }
+					    },
+					    callback: function (result) {
+					    	if(result=== true){
+					    		upadte_userSession(username,password);
+					    	}
+					    }
+					});
+				}
+			},
+			error : function(response) {
+
+			}
+		});
+
+	});
+	
+	function upadte_userSession(username,password){
+		console.info(username);
+		console.info(url);
+		$.ajax({
+			url : url + 'gtaa_ift/update_session_status',
+			method : 'POST',
+			dataType : 'JSON',
+			async : true,
+			headers : {
+				'Accept' : 'application/json',
+				'Content-Type' : 'application/json'
+			},
+			data : JSON.stringify({
+				"user_name" : username,
+			}),
+			success:function(response){
+				console.info(response);
+				if(response.Message == 'Record updated Successfully'){
+					window.location.href='index.html?loggedIn='+username;
+				}
+			}
+		});
+	}
+	
+	$(document).keyup(function(){
+	    event.preventDefault();
+	if (event.keyCode === 13) {
+        $('.login_background_input_submitb').trigger('click');
+    }
+	});
+	
+	function close_function(){
+		$('body').removeClass('.modal-open');
+		$('.bootbox').css('display','none');
+		$('.modal-backdrop').css('display','none');
+	};
+	
+	function canls(){
+		/* var nm =document.getElementById("user_name").value;*/
+		alert("Reset Input fields : " +nm	); 
+	 	document.getElementById("user_name").value="";
+	 	document.getElementById("password").value=""; 
+
+	}
+	
+	function validateAddress(){
+	     var TCode = document.getElementById('user_name').value;
+	     if( /[^a-zA-Z0-9_\-\/]/.test( TCode ) ) {
+	    	 bootbox.alert('No Special Characters Allowed');
+	    	 $('#user_name').val('');
+	    }
+	}
+	}, 'text');	
+</script>

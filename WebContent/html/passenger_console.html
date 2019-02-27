@@ -1,0 +1,93 @@
+<style>
+
+.gtaa_dashboard_div_p
+{
+position: relative;
+z-index:1;
+}
+</style>
+
+
+<div class="login_background_dashboard_main">		
+	<div class="col-md-12 gtaa_dashboard_div gtaa_dashboard_div_p">
+		<div class="col-md-6 pull-left gtaa_dash_div_title"> Passenger Console </div>
+		<div class="col-md-6 pull-right gtaa_dash_div_time">
+			<span>{{AssignedDate.now() | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+		</div>
+	</div>
+	
+		 <div class="gtaa_pc_dom_dest gtaa_pc_dom_dest_back">
+					
+					<span class="gtaa_pc_dom_dest_terminal">IFC Bus Bay 5/6 Gates <img src="assests/images/Canada_Flag1.png"  class="can_flag"/> | IFC Baie de bus 5/6 Portes <img src="assests/images/Canada_Flag1.png"  class="can_flag"/> </span>
+					<span>Destination:</span>
+					</div>
+		
+		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 gtaa_pc_body">
+
+			<!-- <div class="col-md-4 col-sm-5 col-xs-5 col-lg-4 pc_img_8 pc_img_8_new">
+				<img src="assests/images/passanger_console_map.jpg" />
+			</div> -->
+			<!-- <div class="pc_destination_text"><img src="assests/images/pc_destination.png" /></div> -->
+			<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 pc_r8_panel">
+				<div class="float-left-100 pc_r8_panel_div">
+					
+					 <!-- <div class="gtaa_pc_dom_dest gtaa_pc_dom_dest_back">
+					
+					<span class="gtaa_pc_dom_dest_terminal">Terminal 1 - <img src="assests/images/GateZone_D1.png" class="d_zone1"/> Gates <img src="assests/images/Canada_Flag1.png"  class="can_flag"/> | Aérogare - <img src="assests/images/GateZone_D1.png" class="d_zone1"/> Gates <img src="assests/images/Canada_Flag1.png"  class="can_flag"/> </span>
+					<span>Destination:</span>
+					</div> -->
+					<div class="col-md-12 pc_sub_col">
+					<div class="col-md-5 col-sm-5 col-xs-5 col-lg-5 pc_img_8 pc_img_8_new">
+						<img class="passanger_console_map"
+							src="assests/images/IFT_web_layout.png" />
+					</div>
+
+
+
+			<table class="gtaa_pc_dest_table col-md-7 col-sm-7 col-xs-7 col-lg-7 pc_img_8">
+
+					<tbody>
+					<tr class="gtaa_pc_dom_dest_back_tr col-md-12">
+						<!-- <td class="col-md-1"></td> -->
+						<td class="col-md-2"><img src="assests/images/ift1.png" /></td>
+						<td class="col-md-7">Next bus arriving<br/>  <br/>Prochain bus arrivant</td>
+						<td class="col-md-26">{{bus_reaching_in}}</td>
+						<!-- <td class="col-md-1"></td> -->
+					</tr>
+					<tr class="gtaa_pc_dom_space"><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr class="gtaa_pc_dom_dest_back_tr col-md-12">
+						<!-- <td class="col-md-1"></td> -->
+						<td class="col-md-2"><img src="assests/images/ift2.png" /></td>
+						<td class="col-md-7">Next bus departing<br/> <br/> Prochain bus au départ</td>
+						<td class="col-md-26">{{bus_leaving_in}}</td>
+						<!-- <td class="col-md-1"></td> -->
+					</tr>
+					<tr class="gtaa_pc_dom_space"><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr class="gtaa_pc_dom_dest_back_tr col-md-12">
+						<!-- <td class="col-md-1"></td> -->
+						<td class="col-md-2"><img src="assests/images/ift3.png" /></td>
+						<td class="col-md-7">Estimated travel time to IFC bus bay 5/6 Gates <img src="assests/images/Canada_Flag1.png"  class="can_flag"/><br/> <br/> Durée estimée du voyage aux IFC Baie de bus 5/6 portes <img src="assests/images/Canada_Flag1.png"  class="can_flag"/></td>
+						<td class="col-md-26">{{avg_time}}</td>
+						<!-- <td class="col-md-1"></td> -->
+					</tr>
+					</tbody>
+					</table>
+						</div>	
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<script>
+	//var gtaa= angular.module("myApp",[]);
+	gtaa.run(function ($rootScope, $interval) {
+
+        $rootScope.AssignedDate = Date;
+        console.info($rootScope.AssignedDate);
+        $interval(function () {
+
+        },1000)
+
+    });
+	</script>

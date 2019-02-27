@@ -1,0 +1,128 @@
+<style>
+table.dataTable.no-footer {
+    border-bottom: 1px solid #ddd !important;
+}
+
+.admtab 
+{
+padding: 0px 2px;
+-webkit-box-shadow: 1px 1px 1px px #DAE0C3;
+	box-shadow: 1px 1px 1px px #DAE0C3; */
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+text-align: center;
+font-weight:bold;	
+font-size: 18px;
+cursor:pointer; 
+ 
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover 
+{
+color: white;
+background-color: #173970;
+
+}
+
+
+.aclass>li>a {
+/* background-color: red; */
+}
+.aclass
+{
+padding:0px;
+box-shadow: 1px 1px 1px 1px #888888;  
+margin-bottom: 5px;
+border-radius: 2px;
+width: 100%;
+background-color: white;
+}
+ 
+</style>
+
+<div id="login_background_dashboard_main">
+
+ <div class="col-md-12 gtaa_dashboard_div">
+			<div class="col-md-6 pull-left gtaa_dash_div_title">Admin Console</div>
+			<div class="col-md-6 pull-right gtaa_dash_div_time">
+				<span>{{AssignedDate.now() | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+			</div>
+	</div>
+
+	<div class="col-md-12 gtaa_dashboard_main">
+						<!-- this is test -->
+						<div class="col-md-12 admtab">
+							<ul class="nav nav-tabs adconsle_navtabs1">
+								<li class="active col-md-2 nvTab" ng-click="display_devices()"><a class="aclass" data-toggle="tab" data-target="#devices">Devices</a></li>
+								<li class="col-md-2 nvTab" ng-click="display_bus_details()"><a class="aclass" data-toggle="tab"
+									data-target="#buses">Buses</a></li>
+								<li class="col-md-2 nvTab" ng-click="display_user_details()"><a  class="aclass" data-toggle="tab"
+									data-target="#users">Users</a></li>
+								<li class="col-md-2 nvTab" ng-click="display_assign_routes()"><a class="aclass" data-toggle="tab"
+									data-target="#assign">Assign</a></li>
+									
+								<li class="col-md-2 nvTab" ng-click="display_assign_MDG()"><a class="aclass" data-toggle="tab"
+									data-target="#mdg">MDG</a></li>
+									
+								<li class="col-md-2 nvTab" ng-click="display_config()"><a class="aclass" data-toggle="tab" data-target="#config">Configuration</a></li>
+							</ul> 
+							   
+						</div> 
+
+ 
+		<div class="gtaa_admin_cons">
+		 	
+		 
+			<ul class="nav nav-tabs adconsle_navtabs adminconsle_navtabs">
+			
+			</ul>  
+			<div class="tab-content">
+
+				<!-- Devices Tab -->
+				<div class="panel panel-primary tab-pane fade in active admin-tab"
+					id="devices"></div>
+
+				<div class="panel panel-primary tab-pane admin-tab fade" id="buses"></div>
+
+				<div class="panel panel-primary tab-pane admin-tab fade" id="users"
+					data-toggle="table"></div>
+
+				<div class="panel panel-primary tab-pane admin-tab fade" id="assign"></div>
+				
+				<div class="panel panel-primary tab-pane admin-tab fade" id="mdg">
+					<iframe src="html/mdg/mdg2.html" class="admin_console_mdg"></iframe>
+				</div>
+				
+				<div class="panel panel-primary tab-pane admin-tab fade" id="config">
+					<div class="col-md-12 gtaa_main_config">
+	<h3>GTAA Configuration</h3>
+	
+	<div class="col-md-3"></div>
+	
+	<div class="col-md-6 gtaa_sub_config">
+	<div class="col-md-6">Switch static page / Go Offline</div>
+	<div class="col-md-6"><input type="checkbox" id="toggle-two" data-on="ON" data-off="OFF">
+		<i class="fa fa-eye-slash out-eye" aria-hidden="true" id="out-eye" style="display:none;"></i>
+	</div>
+	</div>
+	
+	<div class="col-md-3"></div>
+</div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$(".datepicker").kendoDateTimePicker({
+	 	    value: new Date(),
+	 	    dateInput: true,
+	 	   format: "yyyy-MM-dd",
+	 	});
+	});
+	
+
+</script>

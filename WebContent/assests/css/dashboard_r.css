@@ -1,0 +1,430 @@
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+}
+
+@media screen and (max-width: 640px) {
+}
+
+/* .body {
+    margin: 0;
+   height: 100%;
+    font-family: BlissWeb !important;
+	background-color: #F6F5FA !important;
+	 position:fixed; 
+} */
+.padding-0 {
+	padding: 0;
+}
+
+.text.highcharts-credits {
+	display: none !important;
+}
+
+#container_charts {
+	width: 100%;
+	height: 180px;
+}
+
+#baseMap {
+	height: 485px;
+	width: 100%
+}
+
+h5.alert_header {
+	background: #063279;
+	padding: 18px 15px;
+	/* margin: 0px 0px; */
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.dash-map-padding {
+	padding: 14px 10px;
+	float: left;
+	height: 100%;
+}
+
+.map_panel_body iframe {
+	width: 100%;
+	height: 512px;
+	float: left;
+}
+
+.panel-map-dashboard {
+	float: left;
+	width: 100%;
+	height: 106%;
+	/* margin-bottom: 0px; */
+}
+
+.float-left-op {
+	float: right;
+	margin: 0px 5px;
+	font-size: 14px;
+}
+
+.dash-panel-head .panel-heading {
+	background: #fff; ! important;
+	padding: 18px 15px !important;
+	border-bottom: 1px solid transparent !important;
+	border-top-left-radius: 3px !important;
+	border-top-right-radius: 3px !important;
+}
+
+#login_background_dashboard_main {
+	height: 100%;
+	color: #063279;
+	background-color: #F6F5FA !important;
+	float: left;
+	width: 100%;
+	margin-top: 70px;
+	/* position:fixed; */
+}
+
+.login_background_dashboard_main {
+	height: 70vh;
+	background: #133357;
+	color: #eaeaea;
+	background-color: #002663 !important;
+	float: left;
+	width: 100%;
+}
+
+.dash_alerts_summ .bshsah {
+	overflow-y: scroll;
+	height: 290px;
+}
+
+/* Rajasekar */
+.panel-heading1 {
+	padding: 0;
+	color: #fff !important;
+	background-color: #F6F5FA !important;
+	border-color: #F6F5FA !important;
+}
+
+.panel-body1 {
+	margin-left: 0px;
+	margin-top: 5px;
+	margin-right: 4px;
+	height: 300px
+}
+
+.panel-heading2 {
+	border: none;
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+.panel-heading3 {
+	border: none;
+	margin-bottom: 0px;
+}
+
+ul.nav.nav-tabs {
+	height: 39px;
+    position: relative;
+    border: 0;
+    text-align: center;
+}
+
+.nav-tabs>li {
+	float: left;
+	margin-bottom: -1px;
+	width: 170px;
+}
+
+.nav-tabs>li>a {
+	color: #063279;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
+	{
+	/* color: white; */
+	cursor: default;
+	/* background-color: #51a6ef; */
+	/*  border: 1px solid #add5f7;
+    border-bottom-color: #add5f7; */
+}
+
+.nav-tabs>li>a:hover {
+	background-color: #9bbfde;
+}
+
+.nopadd-left {
+	padding-left: 0px;
+	margin-top: 10px;
+}
+
+.nopadd-right {
+	padding-right: 0px;
+	margin-top: 10px;
+	padding-left: 0px;
+	float: left;
+}
+
+.nopadd {
+	padding: 0px;
+}
+
+.T_Vehicles {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.T_Trip {
+	font-size: 15px;
+	margin-left: 20px;
+	font-weight: bold;
+}
+
+.T_Vehicles_value {
+	font-size: 15px;
+	margin-left: 20px;
+	color: #405C81;
+	font-weight: bold;
+}
+
+.T_Alerts_value {
+	font-size: 15px;
+	margin-left: 20px;
+	color: #E66462;
+	font-weight: bold;
+}
+
+.vl {
+	border-left: 5px solid #F6F5FA;
+	height: 30px;
+	margin-left: 20px;
+}
+
+.Trip_status {
+	font-size: 15px;
+	margin-left: 250px;
+	font-weight: bold;
+}
+
+.t_v_bus {
+	font-size: 15px;
+	color: #063279;
+	font-weight: bold;
+}
+
+.run_bus {
+	font-size: 15px;
+	margin-left: 36px;
+	color: #82BF9E;
+	font-weight: bold;
+}
+
+.run_bus_value {
+	font-size: 15px;
+	margin-left: 20px;
+	color: #82BF9E;
+}
+
+.bus_count {
+	float: right;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.trip_count {
+	font-weight: bold;
+	font-size: 12px;
+	color: #A8A9AD;
+}
+
+.panel-vehicle {
+	margin-left: 0px;
+	margin-top: 5px;
+	height: 150px;
+	padding: 0;
+}
+
+.panel-alert {
+    /* margin-top: 5px; */
+    padding: 0;
+}
+
+.panel-alert .col-xs-6 {
+    padding: 5px;
+}
+
+.list-group-item1 {
+	font-size: 12px;
+	position: relative;
+	display: block;
+	padding: 4px 15px;
+	margin-bottom: -1px;
+	background-color: #fff;
+	/* border: 1px solid #ddd; */
+}
+
+.badge1 {
+	margin-left: 6px;
+    float: right;
+    font-size: 14px;
+}
+
+.notpad {
+	padding: 0;
+}
+
+.bus_details_detail ul {
+	margin: 0;
+}
+
+.panel-default-override {
+	float: left;
+    width: 100%;
+    margin-bottom: 0;
+    border: none !important;
+}
+
+.panel-heading-override {
+	background-color: #5379C2 !important;
+    color: #ECF6FF !important;
+    height: 64px;
+    position: relative;
+    line-height: 58px;
+    text-align: center;
+}
+
+.panel-body-override .col-md-8 {
+    font-size: 14px;
+    font-weight: bold;
+    height: 64px;
+    border: 1px solid #5379c2;
+    padding: 16px;
+}
+
+.panel-body-override {
+	padding: 4px;
+}
+
+.icon_run {
+	color: #218E54;
+}
+
+.icon {
+	color: #8E8E8E;
+}
+
+.bus {
+	margin-left: 5px;
+	font-size: 15px;
+}
+
+.panel-body-chart-list {
+	height: 237px;
+	/* width: 299px; */
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 0px solid transparent;
+	/* border-radius: 0px; */
+	/* -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05); */
+	/* box-shadow: 0 1px 1px rgba(0,0,0,.05); */
+	/* margin-left: 33px */;
+}
+
+.chart {
+	height: 237px;
+	width: 100%;
+	float: left;
+	padding: 0px;
+	margin-left: -25px;
+	display: inline-block;
+	position: relative;
+}
+/* #highcharts-o1bv3fu-0,.highcharts-root {
+    height: 100% !important;  width: 100% !important;
+} */
+.panel-body-chart {
+	height: 237px;
+	width: 429px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 0px solid transparent;
+	border-radius: 0px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.list-group-item-status4 {
+	position: relative;
+	display: block;
+	padding: 5px 10px;
+	height: 21px;
+	margin-bottom: -1px;
+	background-color: #fff;
+	/* border: 1px solid #ddd; */
+}
+
+.list-group-item-status3 {
+	position: relative;
+	display: block;
+	padding: 6px 10px;
+	height: 20px;
+	margin-bottom: -1px;
+	background-color: #fff;
+	/* border: 1px solid #ddd; */
+}
+
+.list-group-item-status2 {
+	position: relative;
+	display: block;
+	padding: 6px 10px;
+	margin-bottom: -1px;
+	height: 23px;
+	background-color: #fff;
+	/* border: 1px solid #ddd; */
+}
+
+.list-group-item-status1 {
+	position: relative;
+	display: block;
+	padding: 3px 10px;
+	height: 20px;
+	margin-bottom: -1px;
+	background-color: #fff;
+	/* border: 1px solid #ddd; */
+}
+
+.avg_trip {
+	font-size: 20px;
+	margin-left: 10px;
+	color: #4773BA;
+	font-weight: bold;
+}
+
+.panel-default-TA {
+	height: 199px;
+	margin-bottom: 0px;
+}
+
+.panel-default-TA1 {
+	height: 199px;
+	margin-bottom: 0;
+}
+
+.highcharts-grid-line {
+	display: none !important;
+}
+
+.highcharts-tick {
+	display: none !important;
+}
+
+.alert_t {
+	padding: 0px;
+	float: left;
+}
+
+.panel{
+	border:1px solid rgba(0, 38, 99, 0.50);
+}

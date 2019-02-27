@@ -1,0 +1,190 @@
+.login_background {
+ 	background-image: url(../images/LoginPageDesign_BG.png);	
+	background-repeat: no-repeat;	
+    background-size: 100%;
+
+ 
+}
+ 
+
+.login_background_input {
+	float: left;
+	/*  height: 150px; */
+	width: 600px;
+	margin: auto;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	position: absolute;
+	/*border: solid; */
+	
+}
+
+.login_background_input img {
+	position: relative;
+	left: 78%;
+	top: 17%;
+}
+
+.login_background_input input {
+	position: relative;
+    bottom: 166px;
+    left: 97%;
+    width: 300px;
+    background: transparent;
+    border: 0;
+    color: #002663;
+    z-index: 10000000000000;
+    font-size: 17px;
+    margin: 13px 0px;
+    outline-color: transparent;
+    padding: 3px 0px;
+}
+
+input.login_background_input_submitb {
+/* 	bottom: 120px;
+    opacity: 0;
+    padding: 10px;
+    background: red;
+    z-index: 100000000000;
+    width: 10%;
+    position: relative;
+    left: 82%; */
+    opacity: 0;
+    z-index: 100000000000;
+    width: 15%;
+    position: relative;
+    left: 229px;
+    top: 14px;
+}
+
+.login_background_signup {
+	text-align: center;
+	bottom: 193px;
+	position: relative;
+	left: 150px;
+	font-size: 11px;
+	color: #b0b3b4;
+}
+
+.login_background_input_signup input {
+	position: relative;
+	bottom: 0;
+	margin: 0px 0px;
+	left: 0;
+	width: 100%;
+	color: #b0b3b4;
+	z-index: 10000000000000;
+	font-size: 15px;
+	outline-color: transparent;
+	border-bottom: 1px solid;
+}
+
+.login_background_signup_form {
+	position: relative;
+	bottom: 280px;
+	left: 300px;
+	width: 75%;
+	color: white;
+}
+
+.login_background_signup_form .form-group label {
+	width: 40%;
+	float: left;
+	position: relative;
+	top: 7px;
+}
+
+.login_background_signup_form .form-group div {
+	width: 60%;
+	float: left
+}
+
+.login_background_signup_form .form-group {
+	float: left;
+	margin: 10px 0px;
+	width: 100%;
+}
+
+input.btn.btn-default.login_background_input_signup_submit {
+	border: 1px solid #969191;
+	position: relative;
+	left: 178px;
+	background: darkslategray;
+	color: #fff;
+	padding: 3px;
+}
+
+#login_background_dashboard_main {
+	height: 100vh;
+	background: #3D3075;
+	color: #cec7c7;
+}
+
+.wipro_logo img {
+	float: right;
+	width: 70px;
+	top: 5px;
+	position: relative;
+	right: 5px;
+	
+}
+
+
+
+#Cnlbtn:hover{
+	cursor: pointer;
+	}
+
+
+#Cnlbtn
+{
+	/* position: relative;
+	border-style: solid;
+	z-index: 101;
+	bottom: 169px;
+	right: -200px;	
+	color: #003e80;
+	font-size: 13px;
+	font-weight: bold;
+	border-width: 1px;
+	padding: 1px 6px;
+    border-radius: 4px;
+    tool-tip: "clear"; */
+    
+    position: absolute;
+    border-style: solid;
+    z-index: 1001;
+    bottom: -6px;
+    right: 15%;
+    color: #003e80;
+    font-size: 13px;
+    font-weight: bold;
+    border-width: 1px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    tool-tip: "clear";
+	 
+}
+/*GTAA - Transit Bus ETA System*/
+#logsolNM    
+{
+	 
+	z-index: 100;	    
+    position: absolute;   
+    right: -228px;
+    top: 265px;
+    font-weight: bold;  
+    font-size: 19px;  
+	
+}
+
+#tes
+{
+	 border-style: solid;
+	border-width: 1px; 
+	height:10px;
+	width:20px;
+	
+}

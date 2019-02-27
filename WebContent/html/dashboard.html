@@ -1,0 +1,190 @@
+<link rel="stylesheet" href="assests/css/dashboard_r.css" />
+<style>
+.highcharts-credits{
+    display: none !important;
+}
+
+.navdiv
+{
+/*background-color: grey;
+margin-right:5px; */
+}
+</style>
+<div id="login_background_dashboard_main">
+
+	<!--New Row-->
+	<div class="col-md-12 dash-map-padding">
+		<div class="col-md-5 col-xs-12 padding-0">
+
+			<div class="panel dash-panel-head panel-map-dashboard">
+				<div class="panel-heading">
+					Terminal Map 
+					<div class="float-left-op"><img src="assests/images/BlueBus.png" />Geofence Deviation</div>
+					<div class="float-left-op"><img src="assests/images/buses24.png" />Halt/Stoppage</div>
+					<div class="float-left-op"><img src="assests/images/Asset_69.png" />Online</div>
+					
+					
+					<!-- <img src="assests/images/Vehicle.png" /> 
+					<img src="assests/images/Route.png" /> -->
+				</div>
+				<div class="panel-body map_panel_body">
+					<iframe src="html/gis/BaseMap_dash.html"></iframe>
+					
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-md-7 col-xs-12">
+		
+			<div class="panel with-nav-tabs panel-primary panel-heading3 ">
+                <div class="panel-heading panel-heading1">
+                        <ul class="nav nav-tabs navdiv">
+                           <!--  <li class="active"><a href="#tab1danger" data-toggle="tab"><span>All Vehicles</span><i class=" fa fa-caret-down" style="margin-left:10px;"></i></a></li> -->
+                            <li id="navli" class="active navli" name="chart_alert"><a ng-click="chart_alert()" data-toggle="tab"><i class="fa fa-circle-o" aria-hidden="true" style="font-size:9px;color:blue;font-weight:bold"></i><span style="margin-left:5px;" >Over All Trips</span></a></li>
+                            <!-- <li id="navli" class="navli" name="DashTrip_Alert"><a ng-click="DashTrip_Alert()" data-toggle="tab"><i class="fa fa-circle-o" aria-hidden="true" style="font-size:9px;color:blue;font-weight:bold"></i><span style="margin-left:5px;" >Trip Status</span></a></li> -->
+                            <li id="navli" class="navli" name="overall_Alert"><a ng-click="overall_Alert()" data-toggle="tab"><i class="fa fa-circle-o" aria-hidden="true" style="font-size:9px;color:red;font-weight:bold"></i><span style="margin-left:5px;" >Alerts</span></a></li>
+                        </ul>
+                </div>
+            </div>
+
+			<!-- Chart Part -->
+			<div class="panel panel-default panel-heading3">
+    
+    			<div class="panel-body panel-body1">
+    					<span class="T_Vehicles">Total Vehicles</span>
+    					<span class="T_Vehicles_value">{{busCount}}</span>
+    					<span class="vl"></span>
+    					<span class="T_Trip">Total Trips</span>
+    					<span class="T_Vehicles_value">{{total_count_bus}}</span>
+    					<span class="Trip_status">TRIP STATUS</span>
+    				<div class="col-md-12 col-xs-12 nopadd">
+ 						<div class="col-md-7 col-xs-12 nopadd-left">
+							<div class="panel panel-default panel-body-chart">
+								<div class="panel-body ">
+									 <div class="chart" id="vehicle1"></div>
+									<!-- <div class="chart" id="vehicleTrp"></div> -->
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5 col-xs-12 nopadd-right">
+							<div class="panel panel-default panel-body-chart-list">
+								<div class="panel-body">
+									<ul class="list-group">
+										<li class="list-group-item-status4"><span class="trip_count">Today Trip Count</span><span class="bus_count">{{busCount}} Buses</span></li>
+ 									 	 <span class=avg_trip>{{current_day_trip_count}}</span>
+    									<li class="list-group-item-status1"><span class="trip_count">{{AverageCount}}</span><span class="bus_count">{{busCount}} Buses</span></li>
+    									<span class=avg_trip>{{average_trip_count}}</span>
+   										 <li class="list-group-item-status2"><span class="trip_count">{{LastTrp}}</span><span class="bus_count">{{busCount}} Buses</span></li>
+    									 <span class=avg_trip>{{last_week_trip_count}}</span>
+    									 <li class="list-group-item-status3"><span class="trip_count">{{LastWeek}}</span><span class="bus_count">{{busCount}} Buses</span></li>
+    									 <span class=avg_trip>{{last_month}}</span>
+    									 <!-- <li class="list-group-item-status4"><span class="trip_count">{{TrpCount}}</span><span class="bus_count">{{busCount}} Buses</span></li>
+ 									 	 <span class=avg_trip>{{total_count_trips}}</span> -->
+ 									 </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+    				
+    			</div>
+    			
+   
+ 			 </div>
+ 			 <div class="col-md-12 col-xs-12 nopadd">
+ 			 	<div class="col-md-6 col-xs-12 nopadd-left">
+ 			 		<div class="panel panel-default panel-default-TA">
+    						<div class="panel-heading">
+    							<span class="t_v_bus">Total Vehicles</span>
+    							<span class="T_Vehicles_value">{{busCount}}</span>
+    							<span class="run_bus">Running Buses</span>
+    							<span class="run_bus_value">{{busCount}}</span>
+    						</div>
+    						<div class="panel-body panel-vehicle" >
+							<div class="bus_details_detail" ng-repeat="bus_details in buses">
+								<div class="col-xs-6 nopadd">
+									<ul class="list-group">
+										<li class="list-group-item1"><span><i
+												class="fa fa-dot-circle-o" aria-hidden="true"
+												style="color: #218E54; font-size: 17px;"></i> </span><span
+											class="bus">Bus Name: </span><span class="badge1">{{bus_details.vehicle_number}}</span></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+   
+  					</div>
+ 			 	</div>
+ 			 	<div class="col-md-6 col-xs-12 nopadd-right">
+ 			 		<div class="panel panel-default panel-default-TA1">
+    					<div class="panel-heading">
+    						<span class="t_v_bus">Alerts</span>
+    						<!-- <span class="T_Alerts_value">{{total_count}}</span> -->
+    					</div>
+   						<div class="panel-body panel-alert">
+   						
+   						
+   							<div class="col-xs-6">
+   								<div class="panel panel-default panel-default-override" >
+    								<div class="panel-body panel-body-override col-xs-12"><div class="col-md-4 panel-heading-override">{{halt}} 08</div><div class="col-md-8">Halt</div></div>
+    							</div>
+    							<div class="panel panel-default panel-default-override">
+    								<div class="panel-body panel-body-override col-xs-12"><div class="col-md-4 panel-heading-override">{{route_violation}}06</div><div class="col-md-8">Route Deviation</div></div>
+    							</div>
+   							</div>
+   							<div class="col-xs-6">
+   								<div class="panel panel-default panel-default-override">
+    								<div class="panel-body panel-body-override col-xs-12"><div class="col-md-4 panel-heading-override">{{geofence_violation}}03</div><div class="col-md-8">Geofence Deviation</div></div>
+    							</div>
+    							<div class="panel panel-default panel-default-override">
+    								<div class="panel-body panel-body-override col-xs-12"><div class="col-md-4 panel-heading-override">{{stoppage}}02</div><div class="col-md-8">Stoppage</div></div>
+    							</div>
+   							</div>
+   						
+   					</div>
+ 			 	</div>
+ 			 </div>
+	
+		</div>
+
+	</div>
+
+</div>
+
+<div class="notification_details" style="display:none;">
+			
+			<ul>
+				<li class="temp_routes" ng-click="notification_m('temp-1')">New Temp Route Observed :- <p>4</p></li>
+				<li class="temp_routes" ng-click="notification_m('temp-2')">New Temp Route Observed :- <p>6</p></li>
+				<li class="temp_routes" ng-click="notification_m('temp-3')">New Temp Route Observed :- <p>9</p></li>
+				<li class="temp_routes" ng-click="notification_m('temp-4')">New Temp Route Observed :- <p>2</p></li>
+			</ul>
+			
+		</div>
+</div>
+<script>
+$(document).ready(function(){
+ 
+
+$(".navli").click(function(e){
+	
+	/*  var vs= $(".navli").closest(a).text();
+	   alert(vs); */
+	  // alert($(this).text());	
+	
+});
+	
+		$(document).on('click','.gtaa_fa_arr_right',function() {
+			var leftPos = $('.gtaa_dashboard_div_2_1_1_trip_status').scrollLeft();
+			$('.gtaa_dashboard_div_2_1_1_trip_status').animate({scrollLeft: leftPos +100},'fast');
+		});
+
+		$(document).on('click','.gtaa_fa_arr_left',function() {
+			var leftPos = $('.gtaa_dashboard_div_2_1_1_trip_status').scrollLeft();
+			$('.gtaa_dashboard_div_2_1_1_trip_status').animate({scrollLeft: leftPos -100},'fast');
+		});
+		
+});
+
+</script>

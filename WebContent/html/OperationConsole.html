@@ -1,0 +1,79 @@
+<style>
+/* .adconsle_navtabs1
+{
+background: white;
+padding:3px;
+} */
+
+.aclass
+{
+padding:0px;
+box-shadow: 1px 1px 1px 1px #888888;  
+margin-bottom: 5px;
+border-radius: 2px;
+width: 100%;
+background-color: white;
+text-align: center;
+}
+
+.admtab 
+{
+padding: 0px 2px;
+-webkit-box-shadow: 1px 1px 1px px #DAE0C3;
+	box-shadow: 1px 1px 1px px #DAE0C3; */
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+text-align: center;
+font-weight:bold;	
+font-size: 18px;
+cursor:pointer; 
+ 
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover 
+{
+color: white;
+background-color: #173970;
+
+}
+</style>
+
+<div class="login_background_dashboard_main">
+
+	<div class="col-md-12 gtaa_dashboard_div">
+		<div class="col-md-6 pull-left gtaa_dash_div_title">Operation
+			Console</div>
+		<div class="col-md-6 pull-right gtaa_dash_div_time">
+			<span>{{AssignedDate.now() | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+		</div>
+	</div>
+
+	<div class="col-md-12 gtaa_dashboard_main">
+		<div class="col-md-12 gtaa_dashboard_m_d admtab">
+
+			<!-- <ul class="nav nav-tabs adconsle_navtabs adconsle_navtabs_operation"> -->
+			<ul class="nav nav-tabs adconsle_navtabs1">			
+			 
+				 <li class="active col-md-3 nvTab"><a class="aclass" data-toggle="tab" data-target="#mapandeta" ng-click="mapandeta()" id="mapandeta">Map
+						& ETA</a></li>  
+				 <li class="col-md-3 nvTab"><a  class="aclass" data-toggle="tab"data-target="#op_transit" ng-click="op_transit()" id="op_transit">Transit Bus Monitoring</a></li>
+			
+				<li class="col-md-3 nvTab"><a class="aclass" data-toggle="tab"	data-target="#op_alerts" ng-click="op_alerts()" id="op_alerts">Alerts</a></li>
+				<li class="col-md-3 nvTab"><a class="aclass" data-toggle="tab"
+					data-target="#op_reports" ng-click="op_reports()" id="op_reports">Report</a></li>
+			</ul>
+
+		</div>
+
+		<div class="tab-content operation_map"></div>
+		<!-- <input class="btn-primary"  ng-click="testREST()" type="submit" value="testREST" /> -->
+
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+	$('.adconsle_navtabs1 li:first-child a').trigger('click');
+})
+</script>

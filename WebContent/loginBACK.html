@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GTAA-Transit Bus ETA System</title>
+<link href="assests/css/login.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet"	href="assests/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet"	href="assests/css/new_file.css">
+<link rel="stylesheet"	href="assests/css/bootstrap/font-awesome.min.css">
+<script	src="assests/js/angular.min.js"></script>
+<script	src="assests/js/angular-route.js"></script>
+<script	src="assests/js/jquery.min.js"></script>
+<script	src="assests/js/bootstrap/bootstrap.min.js"></script>
+	<script src="assests/js/bootbox/bootbox.js"></script>
+</head>
+<body class="login_background">
+	<div>
+
+			
+	<!-- <span class="wipro_logo"><img src="assests/images/wipro_newlogo.png"></span> -->
+		<div class="login_background_input">
+		
+		<!-- <span id="logsolNM" >GTAA - IFT Bus ETA System</span>
+		 -->
+			<!-- <img src="assests/images/LoginPageDesign_BG_Login.png" />  -->
+				
+			<input
+				class=" text-box single-line" data-val="true" data-val-required="*"
+				id="user_name" name="user_name" type="text" placeholder="User Name" required onkeyup="validateAddress()"/>
+								
+			<input class="text-box single-line" data-val="true"
+				data-val-required="*" id="password" name="password" type="password"
+				placeholder="* * * * *" /> 
+					
+	 
+		<!-- <span id="Cnlbtn" onclick="canls()" title="Clear"/>X</span> -->
+				
+		</div>
+	</div>
+</body>
+</html>
+<script>
+
+	var url;
+
+	$.get('url.txt', function(data) {
+		url = data;
+		//alert(url);
+	}, 'text');
+
+	$('.testRest').on('click', function() {
+
+		var username = $('#user_name').val();
+		var password = $('#password').val();
+
+		$.ajax({
+			url : url + 'gtaa_ift/check_credentials',
+			method : 'POST',
+			dataType : 'JSON',
+			async : true,
+			headers : {
+				'Accept' : 'application/json',
+				'Content-Type' : 'application/json'
+			},
+			data : JSON.stringify({
+				"user_name" : username,
+				"password" : password,
+			}),
+			success : function(response) {
+				console.info(response);
+				if(response.Message == 'SUCCESS'){
+					localStorage.setItem('login_user',username);
+					localStorage.setItem('gta_Role',response.Role);
+					window.location.href='index.html?loggedIn='+username;
+				}else if(response.Message == 'FAILED'){
+					bootbox.alert(response.Description);
+					canls();
+				}else if(response.Message == 'AlreayLogedin'){
+				
+					//bootbox.alert(response.Description);
+					//$('#user_name').val('');
+					//$('#password').val('');
+					bootbox.confirm({
+					    message: "Another User Active. Should Need to Close Previous Session?",
+					    buttons: {
+					        confirm: {
+					            label: 'Yes',
+					            className: 'btn-success'
+					        },
+					        cancel: {
+					            label: 'No',
+					            className: 'btn-danger'
+					        }
+					    },
+					    callback: function (result) {
+					    	if(result=== true){
+					    		upadte_userSession(username,password);
+					    	}
+					    }
+					});
+				}
+			},
+			error : function(response) {
+
+			}
+		});
+
+	});
+	
+	function upadte_userSession(username,password){
+		console.info(username);
+		console.info(url);
+		$.ajax({
+			url : url + 'gtaa_ift/update_session_status',
+			method : 'POST',
+			dataType : 'JSON',
+			async : true,
+			headers : {
+				'Accept' : 'application/json',
+				'Content-Type' : 'application/json'
+			},
+			data : JSON.stringify({
+				"user_name" : username,
+			}),
+			success:function(response){
+				console.info(response);
+				if(response.Message == 'Record updated Successfully'){
+					window.location.href='index.html?loggedIn='+username;
+				}
+			}
+		});
+	}
+	
+	$(document).keyup(function(){
+	    event.preventDefault();
+	if (event.keyCode === 13) {
+        $('.testRest').trigger('click');
+    }
+	});
+	
+	function close_function(){
+		$('body').removeClass('.modal-open');
+		$('.bootbox').css('display','none');
+		$('.modal-backdrop').css('display','none');
+	};
+	
+	function canls(){
+		/* var nm =document.getElementById("user_name").value;
+		alert("Reset Input fields : " +nm	); */
+	 	document.getElementById("user_name").value="";
+	 	document.getElementById("password").value=""; 
+
+	}
+	
+	function validateAddress(){
+	     var TCode = document.getElementById('user_name').value;
+	     if( /[^a-zA-Z0-9_\-\/]/.test( TCode ) ) {
+	    	 bootbox.alert('No Special Characters Allowed');
+	    	 $('#user_name').val('');
+	    }
+	}
+	
+</script>
